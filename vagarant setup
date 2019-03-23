@@ -1,0 +1,13 @@
+steps to use vagrant
+first of all we shouldhave virtual boxinstalled in our local machine
+    sudo apt-get install virtualbox	(installs VirtualBox)
+    vboxmanage -v	(lists version of VirtualBox installed)
+    vboxmanage list runningvms	(list VMs running in VirtualBox)
+installing vagrant
+sudo apt-get install vagrant	(installs vagrant)
+    vagrant -v	(lists version of Vagrant installed)
+    vagrant init <image name>	(initialize a new Vagrantfile)
+    vagrant up	(launches the Vagrant environment)
+    vagrant ssh	(SSH into VM)
+    uname -a	(print linux distro information)
+    vagrant reload	(restarts VM and loads new Vagrantfile)
