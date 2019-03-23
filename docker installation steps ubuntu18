@@ -1,0 +1,25 @@
+first update existing packages
+    sudo apt update
+install a few prerequisite packages which let apt use packages over HTTPS:
+    sudo apt install apt-transport-https ca-certificates curl software-properties-common
+gpg key of official docker repo
+    curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
+add docker repo to apt source
+    sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu bionic stable"
+update packages database with newly aaded docekr repo
+    sudo apt update
+you are about to install from the Docker repo instead of the default Ubuntu repo: //just to check command
+    apt-cache policy docker-ce
+installing docker ce command
+    sudo apt install docker-ce
+cheack status of running service    
+    sudo systemctl status docker/ service docekr status
+optional(coonands to run docker without sudo)
+add your username to the docker group
+    sudo usermod -aG docker ${USER}
+apply the new group membership, log out of the server and back in
+    su - ${USER}
+Confirm that your user is now added to the docker group by typing:
+    id -nG
+If you need to add a user to the docker group that you're not logged in as, declare that username explicitly using
+    sudo usermod -aG docker username
