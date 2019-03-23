@@ -1,0 +1,16 @@
+//  ymlfile for installing inspec (chef product for wriitng test cases) this yml file can be used with ansible for installing on diffrent workstations
+- hosts : testing-servers
+  vars:
+    date :ansible_date_time.date
+  tasks :
+  - name : use rvm
+    command : bash -lc "rvm use 2.3.6 --default && gem install inspec --no-ri --no-rdoc"
+  - name : running inspec
+    shell : "inspec supermarket exec dev-sec/linux-baseline --reporter html:/vagrant/backup{{vars.date}}.html"
+    ignore_errors: yes
+  - fetch:
+      src: /vagrant/backup{{vars.date}}.html
+      dest: /vagrant/
+  - file:
+      state: absent
+      path: "/vagrant/backup{{vars.version}}.html"
